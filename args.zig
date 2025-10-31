@@ -667,7 +667,7 @@ pub const ErrorHandling = union(enum) {
     collect: *ErrorCollection,
 
     /// Forwards the parsing error to a functionm
-    forward: fn (err: Error) anyerror!void,
+    forward: *const fn (err: Error) anyerror!void,
 
     /// Processes an error with the given handling method.
     fn process(comptime self: Self, src_error: anytype, err: Error) !void {
